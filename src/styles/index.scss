@@ -1,8 +1,21 @@
 @import "~bulma";
 @import "progressive_loading";
 
+.container{
+	width: 100%;
+	max-width: 1520px;
+	margin: 0 auto;
+	padding: 20px;
+}
 #app {
   .card {
-    margin-bottom: 512px;
+    // margin-bottom: 512px;
+    // 
+    display: inline-block;
+    width: 450px;
+    height: 300px;
+  }
+  .card-content,.title{
+  	display: none;
   }
 }

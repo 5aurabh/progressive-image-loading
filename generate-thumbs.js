@@ -13,7 +13,10 @@ const globP = promisify(glob);
 const trace = promisify(potrace.trace);
 
 const addThumbToName = filePath => {
+    filePath = [ filePath.split('/')[0] , filePath.split('/')[1], 
+    'blur', filePath.split('/')[2] ].join('/')
   const parts = filePath.split(".");
+  console.log(parts);
   return [parts[0], '.thumb.', parts[1]].join('');
 };
 
@@ -63,6 +66,6 @@ function generatePrimitive(file) {
   const out = replaceExt(file, '.primitive.svg');
 
   return sharp(file).resize(512, 512, {fit: 'inside'}).toFile(tempPath)
-    .then(() => exec(`primitive -i ${tempPath} -o ${out} -n 500`))
+    .then(() => exec(`/Users/saurabhnanda/projects/go_workspace/bin/primitive -i ${tempPath} -o ${out} -n 500`))
     .then(() => console.log(`Outputed file ${out}`));
 }
